@@ -1,0 +1,25 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/mapbox_blue</item>
+        <item name="colorPrimaryDark">@color/mapboxGrayLight</item>
+        <item name="colorAccent">@color/mapboxWhite</item>
+    </style>
+
+    <style name="customToolBar" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/mapbox_blue</item>
+        <item name="colorPrimaryDark">@color/mapboxGrayLight</item>
+        <item name="colorAccent">@color/mapboxWhite</item>
+    </style>
+
+    <style name="customPopUp" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/mapbox_blue</item>
+        <item name="colorPrimaryDark">@color/mapboxGrayLight</item>
+        <item name="colorAccent">@color/mapboxWhite</item>
+        <item name="overlapAnchor">false</item>
+        <item name="android:dropDownVerticalOffset">-4dp</item>
+    </style>
+
+</resources>

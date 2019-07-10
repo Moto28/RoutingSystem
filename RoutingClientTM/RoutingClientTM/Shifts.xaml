@@ -1,0 +1,182 @@
+﻿<Page
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:m="clr-namespace:Microsoft.Maps.MapControl.WPF;assembly=Microsoft.Maps.MapControl.WPF"
+      xmlns:local="clr-namespace:RoutingClientTM"
+      xmlns:esri="http://schemas.esri.com/arcgis/runtime/2013" x:Class="RoutingClientTM.Shifts"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+       Title="Shifts" MinHeight="530" MinWidth="975">
+    <Grid>
+        <Grid VerticalAlignment="Top" Background="#00bdff" Height="333" Margin="0,0,0.2,0" >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <Image x:Name="closeBtn" Source="Images/close.png" Grid.Column="7" Margin="46,10,45,0" Width="30" MouseEnter="closeBtn_MouseEnter" MouseLeave="closeBtn_MouseLeave" MouseDown="closeBtn_MouseDown">
+                <Image.Effect>
+                    <DropShadowEffect Direction="225" Color="#FFB6C2CB" ShadowDepth="10" BlurRadius="14" />
+                </Image.Effect>
+            </Image>
+            <Border BorderBrush="Black" BorderThickness="1" Grid.ColumnSpan="4" HorizontalAlignment="Left" Height="320" Grid.RowSpan="7" VerticalAlignment="Top" Width="402" Margin="18,13,0,0">
+                <Label Content="Job Information" Margin="1,1,-1,245"/>
+            </Border>
+            <DataGrid x:Name="jobInfoDataGrid" Grid.Column="3" HorizontalAlignment="Left" Height="160" Margin="73,28,0,0" Grid.RowSpan="4" VerticalAlignment="Top" Width="491" Grid.ColumnSpan="5" Grid.Row="3" Loaded="JobInfoDataGrid_Loaded" MouseLeftButtonDown="JobInfoDataGrid_MouseLeftButtonDown" IsReadOnly="True" />
+
+            <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="293" Margin="19,39,0,0" Grid.RowSpan="7" Stroke="Black" VerticalAlignment="Top" Width="401" Grid.ColumnSpan="4"/>
+            <Border BorderBrush="Black" BorderThickness="1" Height="1" RenderTransformOrigin="0.5,0.5" Grid.ColumnSpan="4" Margin="19,14,69,33" Grid.Row="3">
+                <Border.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform ScaleY="-1"/>
+                        <SkewTransform/>
+                        <RotateTransform/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Border.RenderTransform>
+                <Border BorderBrush="Black" BorderThickness="1" Margin="0,76,0,22"/>
+            </Border>
+
+            <Border BorderBrush="Black" BorderThickness="1" Grid.ColumnSpan="5" HorizontalAlignment="Left" Height="187" Margin="73,2,0,0" Grid.Row="3" Grid.RowSpan="4" VerticalAlignment="Top" Width="491" Grid.Column="3"/>
+            <Label Content="Job List" Grid.Column="3" HorizontalAlignment="Left" Margin="73,2,0,0" Grid.Row="3" VerticalAlignment="Top" Grid.ColumnSpan="2" Width="75"/>
+
+            <Label Content="Drivers" Grid.Column="4" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center"></Label>
+            <StackPanel Grid.Column="6" Grid.Row="1" VerticalAlignment="Center" Margin="0,10,59,10">
+                <Image x:Name="driverSelectionImg" HorizontalAlignment="Left" Source="Images/driver.png" Height="28" Width="30" PreviewMouseLeftButtonDown="DriverSelection_PreviewMouseLeftButtonDown" Margin="8,0,0,0" MouseEnter="DriverSelection_MouseEnter" MouseLeave="DriverSelection_MouseLeave"/>
+            </StackPanel>
+
+            <Label Content="Bus" Grid.Column="4" Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center"></Label>
+            <StackPanel Grid.Column="6" Grid.Row="0" VerticalAlignment="Center">
+                <Image x:Name="busSelectionImg" HorizontalAlignment="Left" Source="Images/bus.png" Height="35" Width="30" MouseLeftButtonDown="BusSelection_MouseLeftButtonDown" Margin="8,0,0,0" MouseEnter="BusSelection_MouseEnter" MouseLeave="BusSelection_MouseLeave"/>
+            </StackPanel>
+
+            <Label Content="Route" Grid.Column="4" Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Center"></Label>
+            <StackPanel Grid.Column="6" Grid.Row="2" VerticalAlignment="Center">
+                <Image x:Name="routeSelectionImg" HorizontalAlignment="Left" Source="Images/Gps.png" Height="35" Width="35"  MouseLeftButtonDown="RouteSelection_MouseLeftButtonDown" MouseEnter="RouteSelection_MouseEnter" MouseLeave="RouteSelection_MouseLeave" Margin="7,0,0,0" RenderTransformOrigin="0.5,0.5"/>
+            </StackPanel>
+            <TextBlock Name="driverTbk" Grid.Column="5" Grid.Row="1" Height="20">
+                <TextBox Name="driverTxt" Text="No Driver Selected" Background="#00bdff" BorderThickness="0" TextChanged="DriverTxt_TextChanged" IsReadOnly="True" ></TextBox>
+            </TextBlock>
+
+            <TextBlock Name="busTbk" Grid.Column="5" Grid.Row="0" Height="20">
+                <TextBox Name="busTxt" Text="No Bus selected" Background="#00bdff" BorderThickness="0" TextChanged="BusTxt_TextChanged" IsReadOnly="True"></TextBox>
+            </TextBlock>
+
+            <TextBlock Name="routeTbk" Grid.Column="5" Grid.Row="2" Height="20">
+                <TextBox Name="routeTxt" Text="No Route selected" Background="#00bdff" BorderThickness="0" TextChanged="RouteTxt_TextChanged" IsReadOnly="True"></TextBox>
+            </TextBlock>
+            <Border BorderBrush="Black" BorderThickness="1" Height="1" RenderTransformOrigin="0.5,0.5" Grid.ColumnSpan="2" Margin="36,2,87,45" Grid.Row="2" Grid.Column="1">
+                <Border.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform ScaleY="-1"/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="-89.78"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Border.RenderTransform>
+                <Border BorderBrush="Black" BorderThickness="1" Margin="0,76,0,22"/>
+            </Border>
+            <Label Content="Bus Details" HorizontalAlignment="Left" Margin="93,39,0,0" VerticalAlignment="Top" Grid.RowSpan="2" Grid.ColumnSpan="2" Width="70"/>
+            <Label Content="Driver Details" HorizontalAlignment="Left" Margin="39,39,0,0" VerticalAlignment="Top" Grid.RowSpan="2" Width="91" Grid.Column="2" Grid.ColumnSpan="2"/>
+            <Label Content="Route Details" HorizontalAlignment="Left" Margin="58,15,0,0" VerticalAlignment="Top" Width="86" Grid.Column="1" Grid.Row="3" Grid.ColumnSpan="2"/>
+
+            <Label Content="Start" HorizontalAlignment="Left" Margin="100,38,0,0" VerticalAlignment="Top" Grid.RowSpan="2" Width="91" Grid.ColumnSpan="2" Grid.Row="3" FontSize="10"/>
+            <Label Content="End" HorizontalAlignment="Left" Margin="57,38,0,0" VerticalAlignment="Top" Width="86" Grid.Column="2" Grid.Row="3" Grid.ColumnSpan="2" Grid.RowSpan="2" FontSize="10"/>
+            <Border BorderBrush="Black" BorderThickness="1" Height="1" RenderTransformOrigin="0.5,0.5" Grid.ColumnSpan="4" Margin="20,14,68,33" Grid.Row="1">
+                <Border.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform ScaleY="-1"/>
+                        <SkewTransform/>
+                        <RotateTransform/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Border.RenderTransform>
+                <Border BorderBrush="Black" BorderThickness="1" Margin="0,76,0,22"/>
+            </Border>
+            <Border BorderBrush="Black" BorderThickness="1" Height="1" RenderTransformOrigin="0.5,0.5" Grid.ColumnSpan="4" Margin="18,16.429,70,30.143" Grid.Row="6">
+                <Border.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform ScaleY="-1"/>
+                        <SkewTransform/>
+                        <RotateTransform/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Border.RenderTransform>
+            </Border>
+            <Border BorderBrush="Black" BorderThickness="1" Height="1" RenderTransformOrigin="0.5,0.5" Grid.ColumnSpan="4" Margin="20,38,68,9" Grid.Row="3">
+                <Border.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform ScaleY="-1"/>
+                        <SkewTransform/>
+                        <RotateTransform/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Border.RenderTransform>
+                <Border BorderBrush="Black" BorderThickness="1" Margin="0,76,0,22"/>
+            </Border>
+            <Border BorderBrush="Black" BorderThickness="1" Height="1" RenderTransformOrigin="0.5,0.5" Grid.ColumnSpan="4" Margin="18,8,69,39" Grid.Row="4">
+                <Border.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform ScaleY="-1"/>
+                        <SkewTransform/>
+                        <RotateTransform/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Border.RenderTransform>
+            </Border>
+            <Border BorderBrush="Black" BorderThickness="1" Height="1" RenderTransformOrigin="0.5,0.5" Margin="23,18,74,29" Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="2">
+                <Border.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform ScaleY="-1"/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="-89.78"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Border.RenderTransform>
+                <Border BorderBrush="Black" BorderThickness="1" Margin="0,76,0,22"/>
+            </Border>
+            <StackPanel Grid.ColumnSpan="4" HorizontalAlignment="Left" Height="266" Margin="19,39,0,0" Grid.RowSpan="7" VerticalAlignment="Top" Width="401" Panel.ZIndex="0">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+
+                    <TextBlock Height="5" Grid.ColumnSpan="8" Grid.Row="0"></TextBlock>
+                    <TextBlock x:Name="busTxtBlk"  Grid.Column="0"  Grid.Row="1" FontSize="12" TextAlignment="Center"></TextBlock>
+                    <TextBlock x:Name="driverTxtBlk" Grid.Column="1" Grid.Row="1" FontSize="12" TextAlignment="Center"></TextBlock>
+                    <TextBlock x:Name="startTxtBlk" Grid.Column="0" Grid.ColumnSpan="1" Grid.Row="2" FontSize="11" TextAlignment="Center"></TextBlock>
+                    <TextBlock x:Name="endTxtBlk" Grid.Column="1" Grid.ColumnSpan="1" Grid.Row="2" FontSize="11" TextAlignment="Center"></TextBlock>
+                    <TextBlock x:Name="summaryTxtBlk" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="3" FontSize="11" TextAlignment="Center"></TextBlock>
+                </Grid>
+
+            </StackPanel>
+        </Grid>
+    </Grid>
+</Page>

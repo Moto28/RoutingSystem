@@ -1,0 +1,271 @@
+@startuml
+
+title __CLIENT's Class Diagram__\n
+
+  package com.route.client {
+    class Address1 {
+        + adminDistrict : String
+        + adminDistrict2 : String
+        + countryRegion : String
+        + formattedAddress : String
+        + locality : String
+    }
+  }
+
+  package com.route.client {
+    class AddressMJ {
+        + adminDistrict : String
+        + adminDistrict2 : String
+        + countryRegion : String
+        + formattedAddress : String
+        + locality : String
+    }
+  }
+  
+
+
+  
+
+  package com.route.client {
+    class Geocodepoint1 {
+        + type : String
+        + coordinates : float[]
+        + calculationMethod : String
+        + usageTypes : String[]
+    }
+  }
+  
+
+  package com.route.client {
+    class Hint {
+        + hintType : Object
+        + text : String
+    }
+  }
+  
+
+  package com.route.client {
+    class HomeActivity {
+        - viewPager : ViewPager
+        - jobs : JsonArray
+        - queue : RequestQueue
+        - response : String
+        # onCreate()
+        + onCreateOptionsMenu()
+        + onOptionsItemSelected()
+        + populate()
+    }
+  }
+  
+
+  package com.route.client {
+    class Instruction {
+        + formattedText : Object
+        + maneuverType : String
+        + text : String
+    }
+  }
+  
+
+  package com.route.client {
+    class Itineraryitem {
+        + compassDirection : String
+        + details : Detail[]
+        + exit : String
+        + iconType : String
+        + sideOfStreet : String
+        + tollZone : String
+        + towardsRoadName : String
+        + transitTerminus : String
+        + travelDistance : float
+        + travelDuration : int
+        + travelMode : String
+        + signs : String[]
+        + warnings : Warning[]
+        + hints : Hint[]
+    }
+  }
+  
+
+  package com.route.client {
+    class Line {
+        + type : String
+        + coordinates : float[][]
+    }
+  }
+  
+
+  package com.route.client {
+    class LoginActivity {
+        {static} - REQUEST_READ_CONTACTS : int
+        - mUserView : AutoCompleteTextView
+        - mPasswordView : EditText
+        - mProgressView : View
+        - mLoginFormView : View
+        - mResponse : String
+        - queue : RequestQueue
+        - userId : String
+        - password : String
+        # onCreate()
+        - attemptLogin()
+    }
+  }
+  
+
+  package com.route.client {
+    class MainActivity {
+        - mapView : MapView
+        - map : MapboxMap
+        - permissionsManager : PermissionsManager
+        - locationEngine : LocationEngine
+        - locationLayerPlugin : LocationLayerPlugin
+        - originLocation : Location
+        - originPosition : Point
+        - destinationPosition : Point
+        - destinationMarker : Marker
+        - startButton : Button
+        - coords : ArrayList<Point>
+        - line : List<LatLng>
+        - navigationMapRoute : NavigationMapRoute
+        - nav : NavigationRoute
+        - routeodfgoh : DirectionsRoute
+        {static} - TAG : String
+        {static} - rawRoute : RawRoute
+        - coordSize : int
+        # onCreate()
+        + onMapReady()
+        - enableLocation()
+        - createLocationEngine()
+        - createLocationLayer()
+        - setCameraPosition()
+        + onMapClick()
+        + onConnected()
+        + onLocationChanged()
+        + onExplanationNeeded()
+        + onPermissionResult()
+        + onRequestPermissionsResult()
+        # onStart()
+        # onResume()
+        # onPause()
+        # onStop()
+        + onSaveInstanceState()
+        + onLowMemory()
+        # onDestroy()
+        + GetRoute()
+    }
+  }
+  
+
+
+  
+
+  package com.route.client {
+    class RawRoute {
+        + authenticationResultCode : String
+        + brandLogoUri : String
+        + copyright : String
+        + resourceSets : Resourceset[]
+        + statusCode : int
+        + statusDescription : String
+        + traceId : String
+    }
+  }
+  
+
+  package com.route.client {
+    class ResourceMJ {
+        + __type : String
+        + bbox : float[]
+        + id : String
+        + distanceUnit : String
+        + durationUnit : String
+        + routeLegs : Routeleg[]
+        + travelDistance : float
+        + travelDuration : int
+        + travelDurationTraffic : int
+    }
+  }
+  
+
+
+
+  package com.route.client {
+    class Routeleg {
+        + alternateVias : Object[]
+        + cost : int
+        + description : String
+        + itineraryItems : Itineraryitem[]
+        + routeRegion : String
+        + routeSubLegs : Routesubleg[]
+        + travelDistance : float
+        + travelDuration : int
+    }
+  }
+  
+
+  package com.route.client {
+    class Routepath {
+        + generalizations : Object[]
+    }
+  }
+  
+
+  package com.route.client {
+    class Routesubleg {
+        + travelDistance : float
+        + travelDuration : int
+    }
+  }
+  
+
+  package com.route.client {
+    class SlideAdaptor {
+        - context : Context
+        - layoutInflater : LayoutInflater
+        - queue : RequestQueue
+        - jobs : JsonArray
+        + lst_images : int[]
+        + lst_background : int[]
+        + SlideAdaptor()
+        + getCount()
+        + isViewFromObject()
+        + instantiateItem()
+        + destroyItem()
+    }
+  }
+  
+
+
+
+  Detail o-- Roadshieldrequestparameters : roadShieldRequestParameters
+  Endlocation o-- Point : point
+  Endlocation o-- AddressMJ : address
+  HomeActivity -up-|> AppCompatActivity
+  HomeActivity o-- SlideAdaptor : slideAdaptor
+  HostCallbacks -up-|> FragmentHostCallback
+  Itineraryitem o-- Instruction : instruction
+  Itineraryitem o-- Maneuverpoint : maneuverPoint
+  LoginActivity -up-|> AppCompatActivity
+  HostCallbacks -up-|> FragmentHostCallback
+  MainActivity -up-|> OnMapReadyCallback
+  MainActivity -up-|> LocationEngineListener
+  MainActivity -up-|> PermissionsListener
+  MainActivity -up-|> OnMapClickListener
+  MainActivity -up-|> AppCompatActivity
+  HostCallbacks -up-|> FragmentHostCallback
+  ResourceMJ o-- Routepath : routePath
+  Routepath o-- Line : line
+  Routesubleg o-- Endwaypoint : endWaypoint
+  Routesubleg o-- Startwaypoint : startWaypoint
+  SlideAdaptor -up-|> PagerAdapter
+
+
+
+right footer
+
+
+PlantUML diagram generated by SketchIt! (https://bitbucket.org/pmesmeur/sketch.it)
+For more information about this tool, please contact philippe.mesmeur@gmail.com
+endfooter
+
+@enduml

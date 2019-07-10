@@ -1,0 +1,139 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="RoutingClientTM.Users" BaseTypeListCollapsed="true">
+    <Position X="6.75" Y="0.5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>IAAAAEAAAAAAgAACAAAAAgBAAgAAAAAAABAACAAAIgA=</HashCode>
+      <FileName>Users.xaml.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="Window" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="RoutingClientTM.Buses" BaseTypeListCollapsed="true">
+    <Position X="15.75" Y="7.75" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AAACAEAACAAAAAAAAEAAABgAACAAgAAIAAAAAAAAAAI=</HashCode>
+      <FileName>Buses.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="RoutingClientTM.BusP" BaseTypeListCollapsed="true">
+    <Position X="4" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACCEAAAAAAgAACAAAAAgBAACAAAAAAABAAAABEIAA=</HashCode>
+      <FileName>BusP.xaml.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="adminGui" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="RoutingClientTM.DialogInput" BaseTypeListCollapsed="true">
+    <Position X="14.75" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAABAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DialogInput.xaml.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="buses" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="RoutingClientTM.Driver" BaseTypeListCollapsed="true">
+    <Position X="17" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEQACAAAAAAAAAAAAAIAAAAAABAIAABAAAAAAAA=</HashCode>
+      <FileName>Driver.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="RoutingClientTM.Login" BaseTypeListCollapsed="true">
+    <Position X="0.5" Y="5.75" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AAEAAACABAAAAAAAAAAABACAAAAAEAAAAAAAAAAAKAA=</HashCode>
+      <FileName>Login.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="RoutingClientTM.MapWindow" BaseTypeListCollapsed="true">
+    <Position X="3.75" Y="5.5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>QABBIEEgCAIAAgAAAAAAgAhAIBIAgAEIggAEAiAAACA=</HashCode>
+      <FileName>MapWindow.xaml.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="code" />
+      <Field Name="shift" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="RoutingClientTM.Shifts" BaseTypeListCollapsed="true">
+    <Position X="19" Y="0.75" Width="3.5" />
+    <AssociationLine Name="driver" Type="RoutingClientTM.DriverC" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="22.5" Y="10.131" />
+        <Point X="22.875" Y="10.131" />
+        <Point X="22.875" Y="11.44" />
+        <Point X="15.125" Y="11.44" />
+        <Point X="15.125" Y="8.625" />
+        <Point X="13.75" Y="8.625" />
+        <Point X="13.75" Y="9" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>KEGBAEACggAEggQioAAOIgLCACEACAAgBBggABFEIKA=</HashCode>
+      <FileName>Shifts.xaml.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="adminGui" />
+      <Field Name="bus" />
+      <Field Name="job" />
+      <Field Name="driver" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="RoutingClientTM.AdminGui">
+    <Position X="0.5" Y="1" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAACIAgAAAAAAAAAgBwAAAAAAESBUgBAAAAAII=</HashCode>
+      <FileName>AdminGui.xaml.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="busP" />
+      <Field Name="shiftP" />
+      <Field Name="userP" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="RoutingClientTM.Bus">
+    <Position X="14.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAEAAAgAAABAAAAAACACAAAAQAAAAAAAAAACAAIAAA=</HashCode>
+      <FileName>Classes\Bus.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RoutingClientTM.Classes.Job">
+    <Position X="13" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAAAAAAAAAAAAIIBACAAABAAIAAAAAAAAAAAQAAQAA=</HashCode>
+      <FileName>Classes\Job.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RoutingClientTM.DriverC">
+    <Position X="13.25" Y="9" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAgAgIAAQAgAAAAAAAAAAAAAAAQAAAAAAAAAAA=</HashCode>
+      <FileName>Classes\DriverC.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RoutingClientTM.JRoute">
+    <Position X="6.75" Y="8" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAMAAAAAAAAAAAQAAAABAAAAAgAAAAAAgAAAACAAAAA=</HashCode>
+      <FileName>Classes\JRoute.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

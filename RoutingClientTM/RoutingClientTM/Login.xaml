@@ -1,0 +1,71 @@
+﻿<Window x:Class="RoutingClientTM.Login"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:RoutingClientTM"
+        mc:Ignorable="d"
+                Title="Login"  WindowStyle="None" ResizeMode="CanMinimize" Height="500" Width="650" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!--top-->
+        <Rectangle x:Name="rectMid" Grid.Row="0" Grid.ColumnSpan="8" Grid.RowSpan="2" Fill="#696969" MouseLeftButtonDown="RectMid_MouseLeftButtonDown"/>
+        <Rectangle Grid.Row="2" Grid.ColumnSpan="8" Grid.RowSpan="6" Fill="#D3D3D3" Margin="0,0,0,44" RenderTransformOrigin="0.5,0.5">
+            <Rectangle.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleY="-1"/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Rectangle.RenderTransform>
+        </Rectangle>
+        <Label Content="Routing Head Office Interface Login" HorizontalContentAlignment="Center" FontFamily="Arial Nova Light" FontSize="20" Grid.Column="1" Grid.RowSpan="2" Grid.ColumnSpan="6" HorizontalAlignment="Left" Grid.Row="0" VerticalAlignment="Top" Width="392" Margin="66,30,0,0"/>
+
+
+
+        <!--mid-->
+        <Rectangle x:Name="topMid"  MinHeight="530"  HorizontalAlignment="Stretch" Grid.ColumnSpan="8" Grid.RowSpan="5" Grid.Column="0" Grid.Row="2" MouseLeftButtonDown="RectMid_MouseLeftButtonDown" />
+
+        <Label Content="Username" HorizontalContentAlignment="Center" FontFamily="Arial Nova Light" Grid.Column="2" Grid.Row="3" />
+        <TextBox x:Name="usernameTxt" Text="" Grid.ColumnSpan="4" Grid.Column="2" HorizontalAlignment="Left" Height="23" Margin="76,0,0,0" Grid.Row="3" TextWrapping="Wrap"  VerticalAlignment="Top" Width="200"/>
+
+        <Label Content="Password" HorizontalContentAlignment="Center" FontFamily="Arial Nova Light" Grid.Column="2" Grid.Row="4" />
+        <PasswordBox x:Name="passTxt" Grid.Column="2" Grid.ColumnSpan="4" HorizontalAlignment="Left" Margin="76,0,0,0" Grid.Row="4" VerticalAlignment="Top" Height="23" Width="200"/>
+
+        <Button x:Name="loginBtn" Background="Transparent" BorderBrush="Transparent" Grid.Column="3" Grid.Row="5"  Grid.RowSpan="2" Grid.ColumnSpan="2" MouseEnter="LoginBtn_MouseEnter" MouseLeave="LoginBtn_MouseLeave" Click="LoginBtn_Click" Margin="51,0,48,25" >
+            <StackPanel Height="87">
+                <Image Name="loginImg" Source="Images\login.png" Height="40" Width="40" Margin="10" VerticalAlignment="Center" HorizontalAlignment="Center"  />
+                <TextBlock Name="loginTxt" Text="Login" FontFamily="Arial Nova Light" FontSize="20" Margin="5,0,0,0"/>
+            </StackPanel>
+        </Button>
+        <!--bottom-->
+        <Rectangle x:Name="rectBot" Grid.Row="7" Grid.ColumnSpan="8" Grid.RowSpan="2" Fill="#696969" MouseLeftButtonDown="RectMid_MouseLeftButtonDown"/>
+        <Button Grid.Column="7" Background="Transparent" Margin="48,0,0,23" BorderBrush="#696969">
+            <StackPanel Height="30">
+                <Image x:Name="closeBtn" Source="images/close.png" Height="30" Width="30" MouseEnter="CloseBtn_MouseEnter" MouseLeave="CloseBtn_MouseLeave" MouseLeftButtonDown="CloseBtn_MouseLeftButtonDown" />
+            </StackPanel>
+        </Button>
+    </Grid>
+</Window>

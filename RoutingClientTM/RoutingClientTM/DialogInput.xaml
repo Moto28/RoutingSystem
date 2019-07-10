@@ -1,0 +1,27 @@
+﻿<Window x:Class="RoutingClientTM.DialogInput"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:RoutingClientTM"
+        mc:Ignorable="d"
+        Title="DialogInput"  Background="#00bdff" WindowStyle="None" Height="162.983" Width="609.477">
+    <Grid Margin="0,0,0,-21">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>            
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>          
+        </Grid.RowDefinitions>
+        
+        <Label VerticalContentAlignment="Center" Grid.ColumnSpan="3"  Grid.RowSpan="1">Enter passenger numbers below:</Label>
+        <TextBox Name="pasNumTxt" Grid.ColumnSpan="2" Height="30" Margin="10" Grid.Row="1" GotFocus="PasNumTxt_GotFocus" >Number of passengers</TextBox>
+        <Button Name="passNumBtn" Grid.Column="3" Grid.Row="1" Height="30" Margin="10" Click="PassNumBtn_Click">Accept</Button>
+    </Grid>
+</Window>
+        
+       

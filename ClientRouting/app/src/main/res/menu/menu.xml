@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/Home"
+        android:title="@string/action_home" />
+    <item
+        android:id="@+id/Driver"
+        android:title="@string/action_details" />
+    <item
+        android:id="@+id/Job"
+        android:title="@string/action_job" />
+    <item
+        android:id="@+id/Settings"
+        android:title="@string/action_settings" />
+
+</menu>

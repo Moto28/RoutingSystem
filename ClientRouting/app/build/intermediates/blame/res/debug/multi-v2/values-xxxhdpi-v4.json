@@ -1,0 +1,19 @@
+{
+    "logs": [
+        {
+            "outputFile": "D:\\ClientRouting\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-xxxhdpi-v4\\values-xxxhdpi-v4.xml",
+            "map": [
+                {
+                    "source": "C:\\Users\\craig\\.gradle\\caches\\transforms-1\\files-1.1\\mapbox-android-navigation-ui-0.13.0.aar\\d0ad3815495505248595479ca7702c5a\\res\\values-xxxhdpi-v4\\values-xxxhdpi-v4.xml",
+                    "from": {
+                        "startLines": "2,3",
+                        "startColumns": "4,4",
+                        "startOffsets": "55,110",
+                        "endColumns": "54,47",
+                        "endOffsets": "105,153"
+                    }
+                }
+            ]
+        }
+    ]
+}
